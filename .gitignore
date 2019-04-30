@@ -189,4 +189,11 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# .gitconfig
+
+[merge]
+    ff = false
+[pull]
+    ff = only
+
 # End of https://www.gitignore.io/api/macos,android,androidstudio
