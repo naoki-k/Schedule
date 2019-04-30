@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#d9d1be">
+    android:background="@color/colorPrimary">
 
     <TextView
         android:layout_width="match_parent"
@@ -11,7 +11,7 @@
         android:paddingBottom="50dp"
         android:gravity="center"
         android:text="SCHEDULE."
-        android:textColor="#747474"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="52sp"
         android:fontFamily="serif"
         />
