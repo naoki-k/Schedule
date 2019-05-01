@@ -7,20 +7,21 @@
     <data>
 
         <variable
-            name="dialogFragment"
-            type="com.example.workspace.schedule.presentation.home.plans.NewPlanDialogFragment"
+            name="viewModel"
+            type="com.example.workspace.schedule.presentation.home.plans.NewPlanViewModel"
             />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="120dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/layout_bg"
-        android:alpha="0.8"
+        android:elevation="5dp"
+        android:alpha="0.7"
         android:gravity="top">
 
         <Button
@@ -28,7 +29,8 @@
             android:layout_width="35dp"
             android:background="@mipmap/baseline_close_white_36"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="20dp"
+            android:onClick="@{viewModel::onClick}"/>
 
     </RelativeLayout>
 

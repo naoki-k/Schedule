@@ -6,5 +6,4 @@ import com.example.workspace.schedule.presentation.BaseView;
 
 public interface HomeView extends BaseView {
 
-    void onClicked(View view);
 }

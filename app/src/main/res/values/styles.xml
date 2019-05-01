@@ -11,6 +11,8 @@
     <style name="NoDimDialogFragmentStyle" parent="@android:style/Theme.Holo.Light.Dialog">
         <item name="android:backgroundDimAmount">0.0</item>
         <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
     </style>
 
 </resources>

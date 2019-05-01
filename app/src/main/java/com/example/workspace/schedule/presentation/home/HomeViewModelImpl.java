@@ -7,7 +7,7 @@ public class HomeViewModelImpl implements HomeViewModel {
 
     @Override
     public void onClick(View view) {
-        homeView.onClicked(view);
+
     }
 
     @Override

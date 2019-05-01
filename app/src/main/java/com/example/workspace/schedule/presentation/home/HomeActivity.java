@@ -34,11 +34,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     }
 
     @Override
-    public void onClicked(View view) {
-
-    }
-
-    @Override
     public Context getContext() {
         return getApplicationContext();
     }
