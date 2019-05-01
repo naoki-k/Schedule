@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.workspace.schedule.presentation.home.plans.NewPlanViewModel"
+            />
+    </data>
+
+    <com.example.workspace.schedule.presentation.home.plans.PlanCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="120dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/layout_bg_plan_card"
+        android:elevation="5dp"
+        android:alpha="0.7">
+
+    </com.example.workspace.schedule.presentation.home.plans.PlanCardView>
+
+</layout>
