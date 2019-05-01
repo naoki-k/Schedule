@@ -4,6 +4,7 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.AttributeSet;
 import android.view.View;
 
 import com.example.workspace.schedule.R;
@@ -19,22 +20,18 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
-        viewModel = new HomeViewModel() {
-            @Override
-            public void init(HomeView view) {
-            }
-
-            @Override
-            public void onClick(View view) {
-                NewPlanDialogFragment newPlanDialogFragment = new NewPlanDialogFragment();
-                newPlanDialogFragment.show(getSupportFragmentManager(), NewPlanDialogFragment.class.getSimpleName());
-            }
-        };
+        viewModel = new HomeViewModel(this);
         binding.setViewModel(viewModel);
     }
 
     @Override
     public Context getContext() {
         return getApplicationContext();
+    }
+
+    @Override
+    public void onClicked(View view) {
+        NewPlanDialogFragment newPlanDialogFragment = new NewPlanDialogFragment();
+        newPlanDialogFragment.show(getSupportFragmentManager(), NewPlanDialogFragment.class.getSimpleName());
     }
 }

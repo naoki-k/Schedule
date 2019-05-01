@@ -1,6 +1,7 @@
 package com.example.workspace.schedule.presentation.home.plans;
 
 import android.app.Dialog;
+import android.arch.lifecycle.ViewModelProvider;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -32,16 +33,7 @@ public class NewPlanDialogFragment extends DialogFragment implements NewPlanView
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding = DialogNewPlanBinding.bind(view);
-        viewModel = new NewPlanViewModel() {
-            @Override
-            public void onClick(View view) {
-                dismiss();
-            }
-
-            @Override
-            public void init(NewPlanView view) {
-            }
-        };
+        viewModel = new NewPlanViewModel(this);
         binding.setViewModel(viewModel);
     }
 
@@ -71,4 +63,8 @@ public class NewPlanDialogFragment extends DialogFragment implements NewPlanView
         return dialog;
     }
 
+    @Override
+    public void onClicked(View view) {
+        dismiss();
+    }
 }

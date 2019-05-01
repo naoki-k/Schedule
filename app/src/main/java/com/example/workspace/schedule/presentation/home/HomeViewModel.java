@@ -2,8 +2,14 @@ package com.example.workspace.schedule.presentation.home;
 
 import android.view.View;
 
-import com.example.workspace.schedule.presentation.ViewModel;
+public class HomeViewModel extends android.arch.lifecycle.ViewModel {
+    private HomeView homeView;
 
-public interface HomeViewModel extends ViewModel<HomeView> {
-    void onClick(View view);
+    public HomeViewModel(HomeView view) {
+        this.homeView = view;
+    }
+
+    public void onClick(View view) {
+        homeView.onClicked(view);
+    }
 }
