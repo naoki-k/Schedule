@@ -6,4 +6,5 @@ import com.example.workspace.schedule.presentation.BaseView;
 
 public interface NewPlanView extends BaseView {
 
+    void onClicked(View view);
 }

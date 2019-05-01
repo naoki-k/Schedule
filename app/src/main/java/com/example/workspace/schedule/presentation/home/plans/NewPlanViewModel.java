@@ -2,10 +2,14 @@ package com.example.workspace.schedule.presentation.home.plans;
 
 import android.view.View;
 
-import com.example.workspace.schedule.presentation.ViewModel;
+public class NewPlanViewModel extends android.arch.lifecycle.ViewModel {
+    private NewPlanView planView;
 
-public interface NewPlanViewModel extends ViewModel<NewPlanView> {
+    public NewPlanViewModel(NewPlanView view){
+        this.planView = view;
+    }
 
-    void onClick(View view);
-
+    public void onClick(View view) {
+        planView.onClicked(view);
+    }
 }
