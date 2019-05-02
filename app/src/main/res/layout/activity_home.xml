@@ -51,9 +51,8 @@
                             android:id="@+id/time_tree"
                             />
                     </RelativeLayout>
-                    <FrameLayout
-                        android:id="@+id/fragment_plans"
-                        android:name="com.example.workspace.schedule.presentation.home.plans.PlansFragment"
+                    <com.example.workspace.schedule.presentation.home.plans.PlanCardsViewGroup
+                        android:id="@+id/view_group"
                         android:layout_width="0dp"
                         android:layout_height="1000dp"
                         android:layout_weight="5"

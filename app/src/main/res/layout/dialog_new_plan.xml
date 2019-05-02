@@ -21,8 +21,7 @@
         android:layout_marginEnd="10dp"
         android:background="@drawable/layout_bg"
         android:elevation="5dp"
-        android:alpha="0.7"
-        android:gravity="top">
+        android:alpha="0.7">
 
         <Button
             android:layout_height="35dp"
@@ -30,7 +29,19 @@
             android:background="@mipmap/baseline_close_white_36"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:onClick="@{viewModel::onClick}"/>
+            android:onClick="@{viewModel::onCloseClick}"/>
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:text="OK"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:background="@drawable/layout_bg_plan_card"
+            android:layout_marginVertical="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{viewModel::onOKClick}"/>
 
     </RelativeLayout>
 

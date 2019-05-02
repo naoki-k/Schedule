@@ -6,9 +6,12 @@ import android.util.AttributeSet;
 import android.view.View;
 
 public class PlanCardView extends View {
-    String startTime;
-    String endTime;
-    String title;
+    private String startTime;
+    private String endTime;
+    private String title = "";
+
+    private int widthSize;
+    private int heightSize;
 
     public PlanCardView(Context context) {
         this(context, null);
@@ -22,15 +25,30 @@ public class PlanCardView extends View {
         super(context, attrs, defStyleAttr);
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+
+        //このViewGroupに割り当てられているサイズを取得する
+        widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        //このViewGroupのサイズをセットする
+        setMeasuredDimension(widthSize, heightSize);
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
     }
 
-    public void setTitle(String title) {
+    // パラメータのセットをするメソッド newした後に必ず呼び出す
+    public void setParams(String title, String startTime, String endTime) {
         this.title = title;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 }

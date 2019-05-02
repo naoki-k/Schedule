@@ -9,7 +9,11 @@ public class NewPlanViewModel extends android.arch.lifecycle.ViewModel {
         this.planView = view;
     }
 
-    public void onClick(View view) {
-        planView.onClicked(view);
+    public void onCloseClick(View view) {
+        planView.onCloseClicked(view);
+    }
+
+    public void onOKClick(View view) {
+        planView.onOKClicked(view);
     }
 }

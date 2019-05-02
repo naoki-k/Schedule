@@ -18,10 +18,12 @@ import android.view.WindowManager;
 
 import com.example.workspace.schedule.R;
 import com.example.workspace.schedule.databinding.DialogNewPlanBinding;
+import com.example.workspace.schedule.presentation.home.HomeActivity;
 
 public class NewPlanDialogFragment extends DialogFragment implements NewPlanView {
     private DialogNewPlanBinding binding;
     private NewPlanViewModel viewModel;
+    private PlanCardsViewGroup viewGroup;
 
     @Nullable
     @Override
@@ -64,7 +66,16 @@ public class NewPlanDialogFragment extends DialogFragment implements NewPlanView
     }
 
     @Override
-    public void onClicked(View view) {
+    public void onCloseClicked(View view) {
+        dismiss();
+    }
+
+    @Override
+    public void onOKClicked(View view) {
+        PlanCardView card = new PlanCardView(getContext());
+        card.setParams("Sample", "01:00", "02:00");
+        HomeActivity collingActivity = (HomeActivity) getActivity();
+        collingActivity.onDialogFragmentResult(card);
         dismiss();
     }
 }
