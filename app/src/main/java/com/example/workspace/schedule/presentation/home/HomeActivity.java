@@ -10,11 +10,15 @@ import android.view.View;
 import com.example.workspace.schedule.R;
 import com.example.workspace.schedule.databinding.ActivityHomeBinding;
 import com.example.workspace.schedule.presentation.home.plans.NewPlanDialogFragment;
+import com.example.workspace.schedule.presentation.home.plans.NewPlanView;
+import com.example.workspace.schedule.presentation.home.plans.PlanCardView;
+import com.example.workspace.schedule.presentation.home.plans.PlanCardsViewGroup;
 
 public class HomeActivity extends AppCompatActivity implements HomeView {
     private final HomeActivity self = this;
     private ActivityHomeBinding binding;
     private HomeViewModel viewModel;
+    private PlanCardsViewGroup viewGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
         viewModel = new HomeViewModel(this);
         binding.setViewModel(viewModel);
+
+        viewGroup = binding.viewGroup;
+
     }
 
     @Override
@@ -33,5 +40,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public void onClicked(View view) {
         NewPlanDialogFragment newPlanDialogFragment = new NewPlanDialogFragment();
         newPlanDialogFragment.show(getSupportFragmentManager(), NewPlanDialogFragment.class.getSimpleName());
+    }
+
+    public void onDialogFragmentResult(PlanCardView view) {
+        viewGroup.addPlanCard(view);
     }
 }
