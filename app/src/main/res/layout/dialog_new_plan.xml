@@ -21,7 +21,7 @@
         android:layout_marginEnd="10dp"
         android:background="@drawable/layout_bg"
         android:elevation="5dp"
-        android:alpha="0.7">
+        android:alpha="0.5">
 
         <Button
             android:layout_height="35dp"
@@ -29,7 +29,95 @@
             android:background="@mipmap/baseline_close_white_36"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
+            android:alpha="0.8"
             android:onClick="@{viewModel::onCloseClick}"/>
+
+        <TextView
+            android:id="@+id/title_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TITLE"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:layout_marginTop="50dp"
+            android:alpha="0.8"
+            android:layout_centerHorizontal="true"/>
+
+        <EditText
+            android:id="@+id/title_field"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:background="@drawable/layout_bg_textfield"
+            android:paddingHorizontal="15dp"
+            android:hint="Input title"
+            android:gravity="center"
+            android:alpha="0.9"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/title_label"/>
+
+        <TextView
+            android:id="@+id/time_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TIME"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="15dp"
+            android:alpha="0.8"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/title_field"/>
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:weightSum="10"
+            android:layout_below="@+id/time_label"
+            >
+
+            <EditText
+                android:id="@+id/start_time_field"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="4"
+                android:background="@drawable/layout_bg_textfield"
+                android:paddingHorizontal="15dp"
+                android:hint="Start time"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:alpha="0.9"
+                android:layout_below="@+id/dialog_title_label"/>
+
+            <TextView
+                android:id="@+id/time_label"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="〜"
+                android:textSize="24sp"
+                android:textColor="@android:color/white"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:alpha="0.8"
+                android:layout_below="@+id/title_field"/>
+
+            <EditText
+                android:id="@+id/end_time_field"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="4"
+                android:background="@drawable/layout_bg_textfield"
+                android:paddingHorizontal="15dp"
+                android:hint="End time"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:alpha="0.9"
+                android:layout_below="@+id/dialog_title_label"/>
+
+        </LinearLayout>
 
         <Button
             android:layout_height="wrap_content"
@@ -37,11 +125,15 @@
             android:text="OK"
             android:textColor="@android:color/white"
             android:textSize="18sp"
+            android:textStyle="bold
+"
             android:background="@drawable/layout_bg_button"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="30dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:alpha="0.9"
             android:onClick="@{viewModel::onOKClick}"/>
+
 
     </RelativeLayout>
 
