@@ -45,9 +45,10 @@ public class PlanCardsViewGroup extends ViewGroup {
 
     public void addPlanCard(PlanCardView view) {
         // 追加するViewのサイズと位置を指定
-        view.measure(MeasureSpec.makeMeasureSpec(100, MeasureSpec.EXACTLY),
+        view.measure(MeasureSpec.makeMeasureSpec(widthSize - 10, MeasureSpec.EXACTLY),
                 MeasureSpec.makeMeasureSpec(100, MeasureSpec.EXACTLY));
-        view.layout(0,0, view.getMeasuredWidth(), view.getMeasuredHeight());
+        view.layout(0,30, view.getMeasuredWidth(), view.getMeasuredHeight());
+        view.setBackground(getResources().getDrawable(R.drawable.layout_bg_plan_card));
         this.addView(view);
     }
 }

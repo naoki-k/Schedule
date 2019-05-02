@@ -37,7 +37,7 @@
             android:text="OK"
             android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:background="@drawable/layout_bg_plan_card"
+            android:background="@drawable/layout_bg_button"
             android:layout_marginVertical="10dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
