@@ -1,6 +1,8 @@
 package com.example.workspace.schedule.presentation.home.plans;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.util.AttributeSet;
@@ -50,6 +52,25 @@ public class PlanCardsViewGroup extends FrameLayout {
                 MeasureSpec.makeMeasureSpec(getChildHeight(view), MeasureSpec.EXACTLY));
         view.layout(0, getY(view), view.getMeasuredWidth(), view.getMeasuredHeight() + getY(view));
         view.setBackground(getResources().getDrawable(R.drawable.layout_bg_plan_card));
+        view.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(final View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("この予定を削除しますか？")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                removeView(view);
+                            }
+                        });
+                builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                builder.show();
+            }
+        });
         this.addView(view);
     }
 

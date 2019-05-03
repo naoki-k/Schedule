@@ -5,6 +5,7 @@ import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
