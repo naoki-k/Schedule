@@ -9,4 +9,8 @@ public interface NewPlanView extends BaseView {
     void onCloseClicked(View view);
 
     void onOKClicked(View view);
+
+    void onStartTimeClicked(View view);
+
+    void onEndTimeClicked(View view);
 }

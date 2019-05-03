@@ -43,18 +43,18 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
                     <RelativeLayout
+                        android:id="@+id/time_tree"
                         android:layout_width="0dp"
-                        android:layout_height="1000dp"
+                        android:layout_height="1500dp"
                         android:layout_weight="1">
                         <include
                             layout="@layout/view_time_tree"
-                            android:id="@+id/time_tree"
                             />
                     </RelativeLayout>
                     <com.example.workspace.schedule.presentation.home.plans.PlanCardsViewGroup
                         android:id="@+id/view_group"
                         android:layout_width="0dp"
-                        android:layout_height="1000dp"
+                        android:layout_height="1500dp"
                         android:layout_weight="5"
                         android:onClick="@{viewModel::onClick}"
                         />
@@ -66,9 +66,9 @@
     <View
         android:layout_height="50dp"
         android:layout_width="match_parent"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
-        android:alpha="0.9"
+        android:alpha="0.6"
         />
     </RelativeLayout>
 </layout>

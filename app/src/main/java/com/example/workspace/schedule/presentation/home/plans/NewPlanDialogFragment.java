@@ -1,6 +1,7 @@
 package com.example.workspace.schedule.presentation.home.plans;
 
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.arch.lifecycle.ViewModelProvider;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
@@ -15,15 +16,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.example.workspace.schedule.R;
 import com.example.workspace.schedule.databinding.DialogNewPlanBinding;
 import com.example.workspace.schedule.presentation.home.HomeActivity;
 
+import java.util.Calendar;
+
 public class NewPlanDialogFragment extends DialogFragment implements NewPlanView {
     private DialogNewPlanBinding binding;
     private NewPlanViewModel viewModel;
     private PlanCardsViewGroup viewGroup;
+
+    private EditText titleEditText;
+    private EditText startTimeEditText;
+    private EditText endTimeEditText;
 
     @Nullable
     @Override
@@ -37,6 +47,14 @@ public class NewPlanDialogFragment extends DialogFragment implements NewPlanView
         binding = DialogNewPlanBinding.bind(view);
         viewModel = new NewPlanViewModel(this);
         binding.setViewModel(viewModel);
+
+        titleEditText = binding.titleField;
+        startTimeEditText = binding.startTimeField;
+        startTimeEditText.setTag(startTimeEditText.getKeyListener());
+        startTimeEditText.setKeyListener(null);
+        endTimeEditText = binding.endTimeField;
+        endTimeEditText.setTag(endTimeEditText.getKeyListener());
+        endTimeEditText.setKeyListener(null);
     }
 
     @Override
@@ -73,9 +91,36 @@ public class NewPlanDialogFragment extends DialogFragment implements NewPlanView
     @Override
     public void onOKClicked(View view) {
         PlanCardView card = new PlanCardView(getContext());
-        card.setParams("Sample", "01:00", "02:00");
+        card.setParams(titleEditText.getText().toString(), startTimeEditText.getText().toString(), endTimeEditText.getText().toString());
         HomeActivity collingActivity = (HomeActivity) getActivity();
         collingActivity.onDialogFragmentResult(card);
         dismiss();
+    }
+
+    @Override
+    public void onStartTimeClicked(View view) {
+        showTimePickerDialog(startTimeEditText);
+    }
+
+    @Override
+    public void onEndTimeClicked(View view) {
+        showTimePickerDialog(endTimeEditText);
+    }
+
+    private void showTimePickerDialog(final EditText editText) {
+        Calendar calendar = Calendar.getInstance();
+        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+        int minute = calendar.get(Calendar.MINUTE);
+        TimePickerDialog dialog = new TimePickerDialog(
+                getContext(),
+                android.R.style.Theme_Holo_Light_Dialog,
+                new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        editText.setText(String.format("%02d:%02d", hourOfDay, minute));
+                    }
+                },
+                hour, minute, true);
+        dialog.show();
     }
 }

@@ -2,10 +2,14 @@ package com.example.workspace.schedule.presentation.home;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.AttributeSet;
+import android.view.Display;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.example.workspace.schedule.R;
 import com.example.workspace.schedule.databinding.ActivityHomeBinding;
@@ -29,6 +33,9 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
         viewGroup = binding.viewGroup;
 
+        Display display = this.getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        display.getSize(point);
     }
 
     @Override
