@@ -8,3 +8,5 @@ public interface HomeView extends BaseView {
 
     void onClicked(View view);
 }
+
+aaaa
