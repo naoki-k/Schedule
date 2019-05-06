@@ -53,3 +53,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         viewGroup.addPlanCard(view);
     }
 }
+
+aaaaa
+
